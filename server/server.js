@@ -9,6 +9,8 @@ const env = require('./src/config/env')
 const connectDB = require('./src/config/db')
 const apiRoutes = require('./src/routes')
 const { notFound, errorHandler } = require('./src/middleware/errorHandler')
+const User = require('./src/models/User')
+const bcrypt = require('bcryptjs')
 
 const app = express()
 
@@ -72,6 +74,26 @@ app.use(errorHandler)
 
 async function start() {
   await connectDB()
+  // Seed an admin user from ENV on first-run if provided (migration helper)
+  try {
+    if (env.ADMIN_EMAIL && env.ADMIN_PASSWORD) {
+      const existing = await User.findOne({
+        email: env.ADMIN_EMAIL.toLowerCase(),
+      })
+      if (!existing) {
+        const hashed = await bcrypt.hash(env.ADMIN_PASSWORD, 10)
+        await User.create({
+          email: env.ADMIN_EMAIL.toLowerCase(),
+          name: env.ADMIN_NAME || 'Admin',
+          password: hashed,
+          role: 'admin',
+        })
+        console.log('[seed] created admin user from env variables')
+      }
+    }
+  } catch (err) {
+    console.error('Error seeding admin user:', err)
+  }
   app.listen(env.PORT, () => {
     console.log(
       `Server running on http://localhost:${env.PORT} (${env.NODE_ENV})`,

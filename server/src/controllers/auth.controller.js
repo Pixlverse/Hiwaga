@@ -1,7 +1,9 @@
 const crypto = require('crypto')
 const jwt = require('jsonwebtoken')
+const bcrypt = require('bcryptjs')
 const env = require('../config/env')
 const asyncHandler = require('../utils/asyncHandler')
+const User = require('../models/User')
 
 // In-memory password-reset token store (cleared on server restart).
 // Production: move to Redis or a Mongo collection.
@@ -14,15 +16,18 @@ exports.login = asyncHandler(async (req, res) => {
     return res.status(400).json({ message: 'Email and password are required' })
   }
 
-  if (
-    email.toLowerCase() !== env.ADMIN_EMAIL.toLowerCase() ||
-    password !== env.ADMIN_PASSWORD
-  ) {
+  const user = await User.findOne({ email: email.toLowerCase() })
+  if (!user) {
+    return res.status(401).json({ message: 'Invalid credentials' })
+  }
+
+  const valid = await bcrypt.compare(password, user.password)
+  if (!valid) {
     return res.status(401).json({ message: 'Invalid credentials' })
   }
 
   const token = jwt.sign(
-    { sub: 'admin', email: env.ADMIN_EMAIL, role: 'admin' },
+    { sub: user._id.toString(), email: user.email, role: user.role },
     env.JWT_SECRET,
     { expiresIn: env.JWT_EXPIRY },
   )
@@ -30,9 +35,9 @@ exports.login = asyncHandler(async (req, res) => {
   res.json({
     token,
     user: {
-      email: env.ADMIN_EMAIL,
-      name: env.ADMIN_NAME,
-      role: 'admin',
+      email: user.email,
+      name: user.name,
+      role: user.role,
     },
   })
 })
@@ -42,7 +47,7 @@ exports.me = asyncHandler(async (req, res) => {
     user: {
       email: req.user.email,
       role: req.user.role,
-      name: env.ADMIN_NAME,
+      name: req.user.name || env.ADMIN_NAME,
     },
   })
 })
@@ -52,7 +57,10 @@ exports.forgotPassword = asyncHandler(async (req, res) => {
   if (!email) return res.status(400).json({ message: 'Email is required' })
 
   // Don't leak whether the email exists. Always respond the same way.
-  if (email.toLowerCase() !== env.ADMIN_EMAIL.toLowerCase()) {
+  const user = await User.findOne({ email: email.toLowerCase() })
+
+  // Always respond the same way so we don't leak registered emails.
+  if (!user) {
     return res.json({
       message: 'If the email is registered, a reset link has been sent.',
     })
@@ -60,10 +68,9 @@ exports.forgotPassword = asyncHandler(async (req, res) => {
 
   const token = crypto.randomBytes(32).toString('hex')
   const expires = Date.now() + 15 * 60 * 1000 // 15 min
-  resetTokens.set(token, { email, expires })
+  resetTokens.set(token, { email: user.email, expires })
 
   // TODO: send via email (SendGrid / Resend / SES).
-  // For now, log it server-side so the admin can copy it during dev.
   const resetUrl = `${env.CORS_ORIGIN}/admin/reset-password?token=${token}`
   console.log('[forgot-password] reset URL:', resetUrl)
   console.log('[forgot-password] token (valid 15 min):', token)
@@ -89,11 +96,16 @@ exports.resetPassword = asyncHandler(async (req, res) => {
 
   resetTokens.delete(token)
 
-  // Password is currently env-based, so we can't persist a new value.
-  // Acknowledge token validation and instruct the admin to update .env.
-  res.json({
-    message:
-      'Token verified. Update ADMIN_PASSWORD in your server .env and restart the API.',
-    note: 'Server-side password is env-based for now. Migrate to a Users collection to support in-app password changes.',
-  })
+  const email = entry.email
+  const user = await User.findOne({ email: email.toLowerCase() })
+  if (!user) {
+    // Shouldn't happen, but fail gracefully.
+    return res.status(400).json({ message: 'Invalid token' })
+  }
+
+  const hashed = await bcrypt.hash(newPassword, 10)
+  user.password = hashed
+  await user.save()
+
+  res.json({ message: 'Password updated successfully.' })
 })
