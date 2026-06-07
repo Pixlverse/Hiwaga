@@ -1,0 +1,14 @@
+# This parent directory is a workspace, not a repo.
+# Each subfolder (client/, server/) is its own independent git repo
+# with its own .gitignore. This file just keeps OS / editor cruft out
+# of the parent if it ever gets committed by mistake.
+
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.sw?
+
+# Just in case anyone runs npm install at the root
+node_modules/
