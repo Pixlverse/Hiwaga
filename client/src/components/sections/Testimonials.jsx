@@ -4,7 +4,6 @@ import alishaTravelsVideo from '@/assets/Alisha Travels.mp4'
 import decorsByMergeVideo from '@/assets/Decors byMerge.mp4'
 import kiaraApparelsVideo from '@/assets/Kiara Apparels.mp4'
 import ssInteriorsVideo from '@/assets/S&S interiors.MP4'
-// import bownBeeVideo from '@/assets/Bown bee kids dental.MP4'
 import homeStoriesVideo from '@/assets/Home stories.MP4'
 
 // Each testimonial may include an optional `videoUrl`.
