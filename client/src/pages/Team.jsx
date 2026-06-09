@@ -19,7 +19,7 @@ import prajeesh from '@/assets/team/Prajeesh.JPG'
 
 const founder = {
   name: 'Asish Thomas Murickaveli',
-  role: 'Creative Director',
+  role: 'Founder & Creative Director',
   image: asish,
   linkedin: 'https://www.linkedin.com/in/asishmurickaveli/',
   bio: [

@@ -21,8 +21,8 @@ const testimonials = [
   },
   {
     // TODO: Replace placeholder quote/author with the actual testimonial content.
-    quote: 'Quote coming soon.',
-    author: 'Decors by Merge',
+    quote: '',
+    author: 'Neha Santhosh',
     role: 'Founder',
     company: 'Decors by Merge',
     accent: 'bg-teal-400/15 text-teal-300',
@@ -39,7 +39,7 @@ const testimonials = [
   },
   {
     // TODO: Replace placeholder quote/author with the actual testimonial content.
-    quote: 'Quote coming soon.',
+    quote: '',
     author: 'S&S Interiors',
     role: 'Founder',
     company: 'S&S Interiors',
@@ -255,7 +255,7 @@ export default function Testimonials() {
                 <span aria-hidden="true" className="h-px w-8 bg-neutral-500" />
                 <h2
                   id="testimonials-heading"
-                  className="text-[10px] font-semibold uppercase tracking-widest text-neutral-400 sm:text-xs md:text-sm"
+                  className="text-pretty text-sm leading-relaxed text-neutral-400 sm:text-base md:text-lg font-medium"
                 >
                   In Their Words
                 </h2>

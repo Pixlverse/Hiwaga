@@ -33,7 +33,7 @@ export default function ValueProps() {
             />
             <h2
               id="values-heading"
-              className="text-[10px] font-semibold uppercase tracking-widest text-neutral-400 sm:text-xs md:text-sm"
+              className="text-pretty text-sm leading-relaxed text-neutral-400 sm:text-base md:text-lg font-medium"
             >
               Value Propositions
             </h2>

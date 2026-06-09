@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Inter for hero headings */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+/* Import Playfair Display for display headings */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&display=swap');
+
 @layer base {
   :root {
     --background: 0 0% 100%;

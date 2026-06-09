@@ -15,9 +15,12 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Geist', ...defaultTheme.fontFamily.sans],
-        mono: ['"Geist Mono"', ...defaultTheme.fontFamily.mono],
-        display: ['Fraunces', ...defaultTheme.fontFamily.serif],
+        // Use Inter as the single font across the entire site
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        mono: ['Inter', ...defaultTheme.fontFamily.mono],
+        // Map display and hero families to Inter so all headings use the same font
+        display: ['Inter', ...defaultTheme.fontFamily.sans],
+        hero: ['Inter', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         border: 'hsl(var(--border))',

@@ -102,7 +102,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-10">
           {/* Left — CTA */}
           <div className="lg:col-span-5">
-            <p className="text-[10px] font-semibold uppercase tracking-widest text-neutral-400 sm:text-xs">
+            <p className="text-pretty text-sm leading-relaxed text-neutral-400 sm:text-base font-medium">
               Get in touch
             </p>
             <h2
@@ -154,7 +154,7 @@ export default function Footer() {
 
           {/* Middle — Links */}
           <nav aria-label="Footer" className="lg:col-span-3">
-            <p className="text-[10px] font-semibold uppercase tracking-widest text-neutral-400 sm:text-xs">
+            <p className="text-pretty text-sm leading-relaxed text-neutral-400 sm:text-base font-medium">
               Explore
             </p>
             <ul className="mt-5 space-y-3">
@@ -177,7 +177,7 @@ export default function Footer() {
 
           {/* Right — Next Page card (dynamic) */}
           <div className="lg:col-span-4">
-            <p className="text-[10px] font-semibold uppercase tracking-widest text-neutral-400 sm:text-xs">
+            <p className="text-pretty text-sm leading-relaxed text-neutral-400 sm:text-base font-medium">
               Next Page
             </p>
             <Link

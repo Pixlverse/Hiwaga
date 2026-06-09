@@ -7,6 +7,7 @@ import {
   Globe,
   ArrowUpRight,
   Send,
+  Video,
 } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -25,19 +26,19 @@ const channels = [
     value: 'Hiwaga Makers',
     href: 'https://www.linkedin.com/company/hiwaga-makers/',
     icon: Linkedin,
-    accent: 'Follow the studio',
+    accent: 'Follow for case studies',
   },
   {
-    label: 'Instagram',
+    label: 'Productions',
     value: '@hiwaga_makers',
     href: 'https://www.instagram.com/hiwaga_makers/',
-    icon: Instagram,
-    accent: 'Brand & client work',
+    icon: Video,
+    accent: 'Video Production - Client Works',
   },
   {
     label: 'Instagram',
     value: '@hiwaga_productions',
-    href: 'https://www.instagram.com/hiwaga_productions/',
+    href: '',
     icon: Instagram,
     accent: 'Films & video production',
   },
@@ -49,11 +50,11 @@ const channels = [
     accent: 'Reviews & business details',
   },
   {
-    label: 'Visit the studio',
+    label: 'Follow - Find Us.',
     value: 'Open in Google Maps',
     href: 'https://maps.app.goo.gl/L85bxphV3yS6yjer7',
     icon: MapPin,
-    accent: 'Drop in for a chat',
+    accent: 'You might find us.',
   },
 ]
 

@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative isolate overflow-hidden bg-neutral-950 text-white"
+      className="relative isolate overflow-hidden bg-neutral-950 text-white font-hero"
     >
       <div
         aria-hidden="true"
@@ -16,11 +16,23 @@ export default function Hero() {
         }}
       />
 
+      {/* Full-section dotted halftone background (subtle gold) */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-20 hidden lg:block"
+        style={{
+          backgroundImage:
+            'radial-gradient(rgba(255,215,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5))',
+          backgroundSize: '12px 12px, 100% 100%',
+          backgroundRepeat: 'repeat, no-repeat',
+          opacity: 0.95,
+        }}
+      />
+
       <div className="mx-auto max-w-7xl px-4 pt-20 pb-16 sm:px-6 sm:pt-28 sm:pb-20 lg:px-8 lg:pt-32 lg:pb-24">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="mx-auto max-w-3xl text-[11px] font-medium uppercase tracking-[0.24em] text-neutral-400 sm:text-xs">
-            Your brand deserves clear strategy, powerful stories and marketing
-            that delivers — we bring it all together.
+          <p className="mx-auto max-w-3xl text-pretty text-sm leading-relaxed text-neutral-400 sm:text-base">
+            Clear strategy. <span className="text-[#FFD700]/95">Powerful stories.</span> Marketing that delivers. We bring it all together.
           </p>
 
           <div
@@ -30,7 +42,7 @@ export default function Hero() {
 
           <h1
             id="hero-heading"
-            className="mt-8 font-display text-balance text-2xl font-light leading-[1.15] tracking-wide text-white sm:text-3xl md:text-4xl lg:text-5xl"
+            className="mt-8 font-display text-balance text-4xl font-light leading-[1.02] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-5xl"
             style={{ fontVariationSettings: '"opsz" 144, "SOFT" 50, "WONK" 1' }}
           >
             <span className="group block cursor-default transition-all duration-500">

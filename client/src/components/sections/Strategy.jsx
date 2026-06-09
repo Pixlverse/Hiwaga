@@ -19,7 +19,7 @@ export default function Strategy() {
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
         <div className="flex items-center gap-3">
           <span aria-hidden="true" className="h-px w-8 bg-neutral-500" />
-          <p className="text-[10px] font-semibold uppercase tracking-widest text-neutral-400 sm:text-xs md:text-sm">
+          <p className="text-pretty text-sm leading-relaxed text-neutral-400 sm:text-base md:text-lg font-medium">
             Success Indicators
           </p>
           <span aria-hidden="true" className="h-px w-8 bg-neutral-500" />
