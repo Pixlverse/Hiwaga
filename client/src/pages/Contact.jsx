@@ -31,14 +31,14 @@ const channels = [
   },
   {
     label: 'Instagram',
-    value: '@hiwaga_productions',
-    href: '',
+    value: '@hiwaga_makers',
+    href: 'https://www.instagram.com/hiwaga_makers?igsh=MXUwNXNqOXdlcWJ2dg%3D%3D',
     icon: Instagram,
     accent: 'Brand Communications',
   },
    {
     label: 'Productions',
-    value: 'View our works',
+    value: '@hiwaga_productions',
     href: '/works',
     icon: Video,
     accent: 'Video Production - Client Works',
