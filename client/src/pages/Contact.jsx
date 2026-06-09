@@ -39,7 +39,7 @@ const channels = [
    {
     label: 'Productions',
     value: '@hiwaga_productions',
-    href: '/works',
+    href: 'https://www.instagram.com/hiwaga_productions?igsh=NHhjbGhqaTN1Nzho',
     icon: Video,
     accent: 'Video Production - Client Works',
   },
