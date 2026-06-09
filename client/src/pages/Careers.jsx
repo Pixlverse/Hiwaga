@@ -18,6 +18,7 @@ import {
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import Reveal from '@/components/Reveal'
+import Halftone from '@/components/Halftone'
 import publicApi, { apiError } from '@/lib/publicApi'
 
 const traits = [
@@ -170,6 +171,7 @@ export default function Careers() {
             }}
           />
 
+          <Halftone />
           <div className="mx-auto max-w-7xl px-4 pb-12 pt-24 sm:px-6 sm:pb-16 sm:pt-32 lg:px-8 lg:pt-36">
             <div className="mx-auto max-w-4xl text-center">
               <h1

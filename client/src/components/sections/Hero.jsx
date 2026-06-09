@@ -1,5 +1,6 @@
 import { ArrowRight, Phone } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import Halftone from '@/components/Halftone'
 
 export default function Hero() {
   return (
@@ -17,17 +18,7 @@ export default function Hero() {
       />
 
       {/* Full-section dotted halftone background (subtle gold) */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-20 hidden lg:block"
-        style={{
-          backgroundImage:
-            'radial-gradient(rgba(255,215,0,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.5), rgba(0,0,0,0.5))',
-          backgroundSize: '12px 12px, 100% 100%',
-          backgroundRepeat: 'repeat, no-repeat',
-          opacity: 0.95,
-        }}
-      />
+      <Halftone />
 
       <div className="mx-auto max-w-7xl px-4 pt-20 pb-16 sm:px-6 sm:pt-28 sm:pb-20 lg:px-8 lg:pt-32 lg:pb-24">
         <div className="mx-auto max-w-5xl text-center">

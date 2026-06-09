@@ -12,6 +12,7 @@ import {
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import Reveal from '@/components/Reveal'
+import Halftone from '@/components/Halftone'
 
 const services = [
   {
@@ -157,6 +158,7 @@ export default function Services() {
             }}
           />
 
+          <Halftone />
           <div className="mx-auto max-w-7xl px-4 pb-16 pt-24 sm:px-6 sm:pb-20 sm:pt-32 lg:px-8 lg:pb-20 lg:pt-36">
             <div className="mx-auto max-w-4xl text-center">
               <h1

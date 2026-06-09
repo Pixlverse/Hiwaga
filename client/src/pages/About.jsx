@@ -3,6 +3,7 @@ import Footer from '@/components/layout/Footer'
 import Reveal from '@/components/Reveal'
 import InfluencedBy from '@/components/sections/InfluencedBy'
 import WhatYoullNotice from '@/components/sections/WhatYoullNotice'
+import Halftone from '@/components/Halftone'
 
 const storySections = [
   {
@@ -41,6 +42,7 @@ export default function About() {
             }}
           />
 
+          <Halftone />
           <div className="mx-auto max-w-7xl px-4 pb-16 pt-24 sm:px-6 sm:pb-20 sm:pt-32 lg:px-8 lg:pb-24 lg:pt-36">
             <div className="mx-auto max-w-4xl text-center">
               <h1
@@ -62,6 +64,7 @@ export default function About() {
             </div>
           </div>
         </section>
+        
 
         {/* Story sections — editorial 2-col layout */}
         <section

@@ -3,6 +3,7 @@ import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import Reveal from '@/components/Reveal'
 import { caseStudies } from '@/data/caseStudies'
+import Halftone from '@/components/Halftone'
 
 function pad(n) {
   return String(n).padStart(2, '0')
@@ -147,6 +148,7 @@ export default function CaseStudies() {
             }}
           />
 
+          <Halftone />
           <div className="mx-auto max-w-7xl px-4 pb-12 pt-24 sm:px-6 sm:pb-16 sm:pt-32 lg:px-8 lg:pt-36">
             <div className="mx-auto max-w-4xl text-center">
               <p className="text-[10px] font-semibold uppercase tracking-[0.32em] text-[#FFD700]/90 sm:text-xs">

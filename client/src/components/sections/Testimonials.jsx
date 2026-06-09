@@ -21,12 +21,21 @@ const testimonials = [
   },
   {
     // TODO: Replace placeholder quote/author with the actual testimonial content.
-    quote: '',
+    quote: 'What impressed me most about Hiwaga Makers was that it never felt like I was working with just one person, it felt like having an entire team invested in my business. Their diverse perspectives, creativity and strategic thinking helped us create content that connected with a much wider audience than we initially imagined. Beyond content production, they provided valuable guidance on business growth, positioning and standing out in a competitive market. The team is professional yet approachable, making the entire process comfortable, collaborative and effective.',
     author: 'Neha Santhosh',
     role: 'Founder',
     company: 'Decors by Merge',
     accent: 'bg-teal-400/15 text-teal-300',
     videoUrl: decorsByMergeVideo,
+  },
+    {
+    quote:
+      'Managing a business is full of daily pressures, and trying to handle high-quality video production on top of it felt impossible. Partnering with Hiwaga Makers completely changed the game for Home Stories by Pioneer. They took over our social media content seamlessly, delivering gorgeous, high-end videos that our followers absolutely love. I’ve even had people reach out directly to ask who handles our production! They are professional, reliable, and highly recommended for any business owner looking to grow their digital presence without the stress.',
+    author: 'Simi Babu',
+    role: 'Founder',
+    company: 'Home Stories by Pioneer',
+    accent: 'bg-rose-400/15 text-rose-300',
+    videoUrl: homeStoriesVideo,
   },
   {
     quote:
@@ -39,7 +48,7 @@ const testimonials = [
   },
   {
     // TODO: Replace placeholder quote/author with the actual testimonial content.
-    quote: '',
+    quote: 'We chose Hiwaga Makers through recommendations and research, and the experience has been excellent from the start. Their videos are professional, clear and widely appreciated by our audience. Beyond execution, the team consistently contributes valuable ideas that help improve communication and reach. I would happily recommend them to any business looking for a reliable marketing partner.',
     author: 'S&S Interiors',
     role: 'Founder',
     company: 'S&S Interiors',
@@ -49,20 +58,11 @@ const testimonials = [
   {
     quote:
       'I was so nervous about being in front of the camera, but the team at Hiwaga Makers made the entire experience effortless! They actually did background research on my dental field beforehand, which allowed them to guide me through a natural conversation instead of making me memorize a script. The atmosphere on set was incredibly friendly and supportive. We ended up creating way more amazing content than I anticipated. Highly recommend them for any brand looking for a seamless, stress-free production experience!',
-    author: 'Bown Bee Kids Dental',
+    author: 'Dr. Sreni K S',
     role: 'Founder',
     company: 'Bown Bee Kids Dental',
     accent: 'bg-indigo-400/15 text-indigo-300',
     videoUrl: '',
-  },
-  {
-    quote:
-      'Managing a business is full of daily pressures, and trying to handle high-quality video production on top of it felt impossible. Partnering with Hiwaga Makers completely changed the game for Home Stories by Pioneer. They took over our social media content seamlessly, delivering gorgeous, high-end videos that our followers absolutely love. I’ve even had people reach out directly to ask who handles our production! They are professional, reliable, and highly recommended for any business owner looking to grow their digital presence without the stress.',
-    author: 'Simi Babu',
-    role: 'Founder',
-    company: 'Home Stories by Pioneer',
-    accent: 'bg-rose-400/15 text-rose-300',
-    videoUrl: homeStoriesVideo,
   },
   {
     quote:
@@ -135,7 +135,7 @@ function TestimonialVideo({ url, title }) {
         loading="lazy"
         allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
-        className="absolute inset-0 h-full w-full"
+        className="absolute inset-0 h-full w-full object-contain"
       />
     )
   }
@@ -149,7 +149,7 @@ function TestimonialVideo({ url, title }) {
         loading="lazy"
         allow="autoplay; fullscreen; picture-in-picture"
         allowFullScreen
-        className="absolute inset-0 h-full w-full"
+        className="absolute inset-0 h-full w-full object-contain"
       />
     )
   }
@@ -162,7 +162,7 @@ function TestimonialVideo({ url, title }) {
       muted
       playsInline
       preload="metadata"
-      className="absolute inset-0 h-full w-full object-cover"
+      className="absolute inset-0 h-full w-full object-contain"
     />
   )
 }
@@ -195,35 +195,35 @@ function TestimonialCard({ t }) {
 
   return (
     <article
-      className={`flex h-full overflow-hidden rounded-2xl border border-white/10 bg-neutral-900/60 transition-colors duration-300 hover:border-white/25 ${
-        hasVideo ? 'flex-col sm:flex-row' : 'flex-col'
-      }`}
+      className={`flex rounded-2xl border border-white/10 bg-neutral-900/60 transition-colors duration-300 hover:border-white/25 flex-col sm:flex-row items-stretch overflow-hidden`}
     >
-      {hasVideo && (
-        <div className="relative aspect-video w-full shrink-0 bg-black sm:aspect-auto sm:w-2/5">
-          <TestimonialVideo
-            url={t.videoUrl}
-            title={`${t.author} — Testimonial`}
-          />
-        </div>
-      )}
+      <div className="w-full sm:w-1/2 lg:w-2/5 flex-shrink-0 relative bg-black">
+        {hasVideo ? (
+          <div className="relative h-full w-full">
+            <TestimonialVideo url={t.videoUrl} title={`${t.author} — Testimonial`} />
+          </div>
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-gradient-to-b from-neutral-900/60 to-neutral-800/40 p-6">
+            <div className="flex flex-col items-center gap-3 text-center">
+              <div className="rounded-full bg-white/6 p-4 text-4xl drop-shadow-md">🎬</div>
+              <div className="text-sm italic text-neutral-300"></div>
+            </div>
+          </div>
+        )}
+      </div>
 
-      <div className="flex flex-1 flex-col p-6 sm:p-7">
+      <div className="flex flex-1 flex-col p-6 sm:p-7 min-w-0 sm:w-1/2 lg:w-3/5">
         <Quote
           aria-hidden="true"
           className="h-6 w-6 text-[#FFD700]/70 sm:h-7 sm:w-7"
           strokeWidth={1.4}
         />
 
-        <p
-          className={`mt-4 text-sm italic leading-relaxed text-white/90 sm:text-[15px] ${
-            hasVideo ? 'line-clamp-[8]' : 'line-clamp-6'
-          }`}
-        >
+        <div className="mt-4 text-sm italic leading-relaxed text-white/90 sm:text-[15px]">
           {t.quote}
-        </p>
+        </div>
 
-        <div className="mt-auto">
+        <div className="mt-4">
           <AuthorBlock t={t} />
         </div>
       </div>
@@ -331,6 +331,17 @@ export default function Testimonials() {
                 </li>
               ))}
             </ul>
+
+            <div className="pointer-events-none absolute inset-y-0 left-0 hidden items-center pl-1 sm:flex">
+              <button
+                type="button"
+                onClick={() => scrollBy(-1)}
+                aria-label="Previous testimonial"
+                className="pointer-events-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-white text-neutral-900 shadow-[0_8px_20px_rgba(0,0,0,0.4)] transition-colors hover:bg-neutral-100"
+              >
+                <ChevronLeft aria-hidden="true" className="h-5 w-5" />
+              </button>
+            </div>
 
             <div className="pointer-events-none absolute inset-y-0 right-0 hidden items-center pr-1 sm:flex">
               <button
