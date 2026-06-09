@@ -49,7 +49,7 @@ const testimonials = [
   {
     // TODO: Replace placeholder quote/author with the actual testimonial content.
     quote: 'We chose Hiwaga Makers through recommendations and research, and the experience has been excellent from the start. Their videos are professional, clear and widely appreciated by our audience. Beyond execution, the team consistently contributes valuable ideas that help improve communication and reach. I would happily recommend them to any business looking for a reliable marketing partner.',
-    author: 'S&S Interiors',
+    author: 'Krishna Prasad',
     role: 'Founder',
     company: 'S&S Interiors',
     accent: 'bg-sky-400/15 text-sky-300',

@@ -30,18 +30,18 @@ const channels = [
     accent: 'Follow for case studies',
   },
   {
-    label: 'Productions',
-    value: '@hiwaga_makers',
-    href: 'https://www.instagram.com/hiwaga_makers/',
-    icon: Video,
-    accent: 'Video Production - Client Works',
-  },
-  {
     label: 'Instagram',
     value: '@hiwaga_productions',
     href: '',
     icon: Instagram,
     accent: 'Brand Communications',
+  },
+   {
+    label: 'Productions',
+    value: 'View our works',
+    href: '/works',
+    icon: Video,
+    accent: 'Video Production - Client Works',
   },
   {
     label: 'Google Business',
