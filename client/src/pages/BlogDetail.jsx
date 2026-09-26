@@ -9,6 +9,7 @@ import {
   Loader2,
 } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
+import Seo from '@/components/Seo'
 import Footer from '@/components/layout/Footer'
 import Reveal from '@/components/Reveal'
 import publicApi, { apiError } from '@/lib/publicApi'
@@ -88,6 +89,7 @@ export default function BlogDetail() {
     return (
       <div className="min-h-screen bg-neutral-950 text-white">
         <Navbar />
+        <Seo title="Article unavailable" noindex />
         <main className="mx-auto flex min-h-[60vh] max-w-lg items-center justify-center px-4">
           <div className="rounded-md border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-center text-sm text-rose-300">
             {error || 'Article unavailable.'}
@@ -99,10 +101,19 @@ export default function BlogDetail() {
   }
 
   const date = post.publishedOn || post.createdAt
+  const firstPara = post.content?.find((b) => b.type === 'p')?.text || ''
+  const summary = post.excerpt || firstPara
+  const metaDescription =
+    summary.length > 158 ? `${summary.slice(0, 155).trimEnd()}…` : summary
 
   return (
     <div className="min-h-screen bg-neutral-950 text-white">
       <Navbar />
+      <Seo
+        title={post.title}
+        description={metaDescription}
+        path={`/blog/${post.slug}`}
+      />
       <main>
         <article>
           <section

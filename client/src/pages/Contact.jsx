@@ -10,6 +10,8 @@ import {
   Video,
 } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
+import Seo from '@/components/Seo'
+import { pageSeo } from '@/data/seo'
 import Footer from '@/components/layout/Footer'
 import Reveal from '@/components/Reveal'
 import Halftone from '@/components/Halftone'
@@ -175,6 +177,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-neutral-950 text-white">
       <Navbar />
+      <Seo {...pageSeo['/contact']} path="/contact" />
       <main>
         {/* Page hero */}
         <section

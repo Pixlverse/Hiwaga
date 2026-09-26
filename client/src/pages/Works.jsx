@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { ArrowUpRight, Loader2 } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
+import Seo from '@/components/Seo'
+import { pageSeo } from '@/data/seo'
 import Footer from '@/components/layout/Footer'
 import Reveal from '@/components/Reveal'
 import Halftone from '@/components/Halftone'
@@ -132,6 +134,7 @@ export default function Works() {
   return (
     <div className="min-h-screen bg-neutral-950 text-white">
       <Navbar />
+      <Seo {...pageSeo['/works']} path="/works" />
       <main>
         {/* Page hero — title only */}
         <section

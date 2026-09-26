@@ -53,6 +53,11 @@ const pageOrder = [
     blurb: 'Browse our recent reels, films, and campaigns.',
   },
   {
+    path: '/websites',
+    title: 'Websites',
+    blurb: 'Websites we’ve designed and built for brands we work with.',
+  },
+  {
     path: '/services',
     title: 'Services',
     blurb: 'Strategy, content, video, performance — what we do, end to end.',

@@ -7,9 +7,12 @@ import {
   TrendingUp,
   MapPin,
   Search,
+  MonitorSmartphone,
   ArrowUpRight,
 } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
+import Seo from '@/components/Seo'
+import { pageSeo } from '@/data/seo'
 import Footer from '@/components/layout/Footer'
 import Reveal from '@/components/Reveal'
 import Halftone from '@/components/Halftone'
@@ -62,6 +65,12 @@ const services = [
     icon: Search,
     title: 'SEO (Search Engine Optimization)',
     body: 'Our SEO approach is practical, purpose-driven and designed to support your long-term discoverability. We help brands strengthen search presence by offering strategic guidance on content, structure and website clarity. From identifying relevant keywords and improving on-page communication to recommending technical enhancements and shaping blog or landing page content, we ensure that your brand is easier to find, easier to understand and easier to trust. Our focus stays on improving your search visibility and supporting the broader narrative of your business across all digital platforms.',
+  },
+  {
+    n: '09',
+    icon: MonitorSmartphone,
+    title: 'Website & App Development',
+    body: 'Your website or app is often the first real conversation a customer has with your brand, so we build it to carry the same clarity as the rest of your communication. We design and develop brand websites, landing pages, e-commerce stores, web applications and mobile apps — handling everything from planning the structure and user journey to UI design, development, launch and ongoing support. Every build is fast, responsive, search-friendly and easy for your team to update. Because our strategy, content and performance teams work alongside development, your digital product is built to do more than look good — it is built to support your campaigns, capture leads and turn visitors into customers.',
   },
 ]
 
@@ -143,6 +152,7 @@ export default function Services() {
   return (
     <div className="min-h-screen bg-neutral-950 text-white">
       <Navbar />
+      <Seo {...pageSeo['/services']} path="/services" />
       <main>
         {/* Page hero */}
         <section
@@ -189,7 +199,7 @@ export default function Services() {
           <h2 id="services-intro" className="sr-only">
             Services overview
           </h2>
-          <div className="mx-auto max-w-4xl px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8 lg:pb-24">
+          <div className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8 lg:pb-24">
             <Reveal>
               <p className="text-base leading-relaxed text-neutral-300 sm:text-lg sm:leading-[1.65] lg:text-[19px]">
                 At <span className="text-white">Hiwaga Makers</span>, our

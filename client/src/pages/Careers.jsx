@@ -16,6 +16,8 @@ import {
   Loader2,
 } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
+import Seo from '@/components/Seo'
+import { pageSeo } from '@/data/seo'
 import Footer from '@/components/layout/Footer'
 import Reveal from '@/components/Reveal'
 import Halftone from '@/components/Halftone'
@@ -156,6 +158,7 @@ export default function Careers() {
   return (
     <div className="min-h-screen bg-neutral-950 text-white">
       <Navbar />
+      <Seo {...pageSeo['/careers']} path="/careers" />
       <main>
         {/* Page hero */}
         <section
@@ -200,23 +203,28 @@ export default function Careers() {
 
         {/* Welcome / intro */}
         <Reveal>
-          <section className="bg-neutral-950 text-white">
-            <div className="mx-auto max-w-4xl px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8 lg:pb-24">
-              <p className="text-[10px] font-semibold uppercase tracking-widest text-[#FFD700]/85 sm:text-xs">
-                — Join the studio
-              </p>
+          <section
+            aria-labelledby="join-studio-heading"
+            className="bg-neutral-950 text-white"
+          >
+            <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8 lg:pb-24">
+              <div className="mx-auto max-w-3xl text-center">
+                <p className="text-[10px] font-semibold uppercase tracking-widest text-[#FFD700]/85 sm:text-xs">
+                  — Join the studio
+                </p>
+                <h2
+                  id="join-studio-heading"
+                  className="mt-5 font-display text-3xl font-medium leading-[1.05] tracking-tight sm:text-4xl md:text-5xl"
+                  style={{
+                    fontVariationSettings: '"opsz" 144, "SOFT" 50, "WONK" 1',
+                  }}
+                >
+                  We love people who{' '}
+                  <span className="text-[#FFD700]">think differently</span>.
+                </h2>
+              </div>
 
-              <h2
-                className="mt-4 font-display text-3xl font-medium leading-[1.1] tracking-tight sm:text-4xl md:text-5xl"
-                style={{
-                  fontVariationSettings: '"opsz" 144, "SOFT" 50, "WONK" 1',
-                }}
-              >
-                We love people who{' '}
-                <span className="text-[#FFD700]">think differently</span>.
-              </h2>
-
-              <div className="mt-6 space-y-5 text-base leading-relaxed text-neutral-300 sm:mt-8 sm:text-lg lg:leading-[1.7]">
+              <div className="mx-auto mt-6 max-w-4xl space-y-5 text-center text-sm leading-relaxed text-neutral-400 sm:mt-8 sm:text-base lg:leading-[1.7]">
                 <p>
                   Welcome to the place where ideas may begin casually, but
                   execution is taken very seriously. At Hiwaga, we love people

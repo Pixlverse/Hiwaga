@@ -7,6 +7,7 @@ import logo from '@/assets/hiwaga-logo.png'
 const primary = [
   { label: 'About', to: '/about' },
   { label: 'Works', to: '/works' },
+  { label: 'Websites', to: '/websites' },
   { label: 'Services', to: '/services' },
   { label: 'Team', to: '/team' },
   { label: 'Careers', to: '/careers' },

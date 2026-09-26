@@ -1,5 +1,7 @@
 import { ArrowUpRight, ArrowDown } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
+import Seo from '@/components/Seo'
+import { pageSeo } from '@/data/seo'
 import Footer from '@/components/layout/Footer'
 import Reveal from '@/components/Reveal'
 import { caseStudies } from '@/data/caseStudies'
@@ -133,6 +135,7 @@ export default function CaseStudies() {
   return (
     <div className="min-h-screen bg-neutral-950 text-white">
       <Navbar />
+      <Seo {...pageSeo['/case-studies']} path="/case-studies" />
       <main>
         {/* Hero */}
         <section

@@ -1,5 +1,7 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import Navbar from '@/components/layout/Navbar'
+import Seo from '@/components/Seo'
+import { pageSeo } from '@/data/seo'
 import Footer from '@/components/layout/Footer'
 import Reveal from '@/components/Reveal'
 import HomeIntro from '@/components/HomeIntro'
@@ -18,17 +20,25 @@ export default function Home() {
     return !sessionStorage.getItem('home_intro_shown')
   })
 
-  const handleIntroDone = () => {
+  // Hero starts its entrance as soon as the intro begins to split open.
+  const [heroReady, setHeroReady] = useState(() => !showIntro)
+
+  const handleIntroReveal = useCallback(() => setHeroReady(true), [])
+
+  const handleIntroDone = useCallback(() => {
     sessionStorage.setItem('home_intro_shown', 'true')
     setShowIntro(false)
-  }
+  }, [])
 
   return (
     <div className="min-h-screen bg-neutral-950 text-white">
-      {showIntro && <HomeIntro onComplete={handleIntroDone} />}
+      {showIntro && (
+        <HomeIntro onReveal={handleIntroReveal} onComplete={handleIntroDone} />
+      )}
       <Navbar />
+      <Seo {...pageSeo['/']} path="/" />
       <main>
-        <Hero />
+        <Hero ready={heroReady} />
         <Reveal>
           <ClientImpactStories />
         </Reveal>

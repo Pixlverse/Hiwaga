@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { Lock, Mail, ArrowRight, Eye, EyeOff, Loader2 } from 'lucide-react'
 import logo from '@/assets/hiwaga-logo.png'
+import Seo from '@/components/Seo'
 import adminApi, {
   setToken,
   setStoredUser,
@@ -64,6 +65,7 @@ export default function AdminLogin() {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-neutral-950 text-white">
+      <Seo title="Admin Login" noindex />
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-[#FFD700]/[0.10] blur-3xl"

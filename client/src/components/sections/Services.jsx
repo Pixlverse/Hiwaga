@@ -42,6 +42,11 @@ const services = [
     title: 'SEO (Search Engine Optimization)',
     body: 'From identifying relevant keywords and improving on-page messaging to recommending technical improvements and shaping blogs or landing pages, we make your brand easier to find, understand, and trust — while supporting your overall digital narrative.',
   },
+  {
+    number: '09',
+    title: 'Website & App Development',
+    body: 'From brand websites and landing pages to e-commerce stores and mobile apps, we design and build digital products that look sharp, load fast, and turn visitors into customers. Every build is shaped around your brand story, optimised for search and easy for your team to manage.',
+  },
 ]
 
 export default function Services() {

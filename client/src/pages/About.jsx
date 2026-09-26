@@ -1,4 +1,6 @@
 import Navbar from '@/components/layout/Navbar'
+import Seo from '@/components/Seo'
+import { pageSeo } from '@/data/seo'
 import Footer from '@/components/layout/Footer'
 import Reveal from '@/components/Reveal'
 import InfluencedBy from '@/components/sections/InfluencedBy'
@@ -9,7 +11,7 @@ const storySections = [
   {
     number: '01',
     title: 'Our Story',
-    body: 'Hiwaga Makers began as a creative-first venture rooted in video production and storytelling. Over time, through continuous learning, collaboration and strategic thinking, it evolved into a full-service advertising and marketing agency. Today, Hiwaga works across strategy, content, campaigns and performance — building brands with clarity and purpose.',
+    body: 'Hiwaga Makers began as a creative-first venture rooted in video production and storytelling. Over time, through continuous learning, collaboration and strategic thinking, it evolved into a full-service advertising and marketing agency. Today, Hiwaga works across strategy, content, campaigns, performance and website & app development — building brands with clarity and purpose.',
   },
   {
     number: '02',
@@ -27,6 +29,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-neutral-950 text-white">
       <Navbar />
+      <Seo {...pageSeo['/about']} path="/about" />
       <main>
         {/* Page hero / landing identifier */}
         <section

@@ -3,6 +3,7 @@ import { Navigate, useLocation } from 'react-router-dom'
 import { Menu, Bell } from 'lucide-react'
 import Sidebar from './Sidebar'
 import { getToken } from '@/lib/adminApi'
+import Seo from '@/components/Seo'
 
 export default function AdminLayout({ children, title, description, actions }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
@@ -17,6 +18,7 @@ export default function AdminLayout({ children, title, description, actions }) {
 
   return (
     <div className="min-h-screen bg-neutral-950 text-white">
+      <Seo title={title ? `${title} · Admin` : 'Admin'} noindex />
       <Sidebar
         open={sidebarOpen}
         onClose={() => setSidebarOpen(false)}

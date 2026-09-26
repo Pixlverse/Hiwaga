@@ -9,6 +9,7 @@ import Home from '@/pages/Home'
 import About from '@/pages/About'
 import Team from '@/pages/Team'
 import Works from '@/pages/Works'
+import Websites from '@/pages/Websites'
 import Services from '@/pages/Services'
 import FAQ from '@/pages/FAQ'
 import Careers from '@/pages/Careers'
@@ -119,6 +120,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/team" element={<Team />} />
         <Route path="/works" element={<Works />} />
+        <Route path="/websites" element={<Websites />} />
         <Route path="/services" element={<Services />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/careers" element={<Careers />} />

@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { Plus, ArrowRight } from 'lucide-react'
 import Navbar from '@/components/layout/Navbar'
+import Seo from '@/components/Seo'
+import { pageSeo } from '@/data/seo'
 import Footer from '@/components/layout/Footer'
 import Reveal from '@/components/Reveal'
 import Halftone from '@/components/Halftone'
@@ -33,6 +35,10 @@ const faqs = [
   {
     q: 'Do you take up OOH (Out-of-Home) advertising?',
     a: 'We support outdoor campaigns for select clients. This includes creative direction, design, message development, location planning and coordination. Every OOH campaign is aligned with your digital communication to ensure consistency across all touchpoints.',
+  },
+  {
+    q: 'Do you build websites and mobile apps?',
+    a: 'Yes. We design and develop brand websites, landing pages, e-commerce stores, web applications and mobile apps. We handle planning, UI design, development, launch and ongoing support — and because our strategy and content teams work alongside development, your website or app stays aligned with your brand and marketing goals.',
   },
   {
     q: 'Can I collaborate if I only need video production?',
@@ -133,6 +139,7 @@ export default function FAQ() {
   return (
     <div className="min-h-screen bg-neutral-950 text-white">
       <Navbar />
+      <Seo {...pageSeo['/faq']} path="/faq" />
       <main>
         {/* Page hero */}
         <section
